@@ -1,0 +1,22 @@
+# Ruler Configuration File
+# See https://ai.intellectronica.net/ruler for documentation.
+
+# --- Default Agents ---
+default_agents = ["copilot", "cursor"]
+
+# --- Agent Specific Configurations ---
+[agents.copilot]
+enabled = true
+output_path = ".github/copilot-instructions.md"
+
+[agents.cursor]
+enabled = true
+
+# --- MCP Server Definitions ---
+# [mcp_servers.context7]
+# command = "npx"
+# args = ["-y", "@upstash/context7-mcp"]
+
+# --- Global .gitignore Configuration ---
+[gitignore]
+enabled = true
