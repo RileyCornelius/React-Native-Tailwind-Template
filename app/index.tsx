@@ -1,34 +1,35 @@
+import React from 'react';
+import { ScrollView } from 'react-native';
+import { useRouter } from 'expo-router';
+
 import Gradient from '@/assets/icons/Gradient';
 import Logo from '@/assets/icons/Logo';
 import { Box } from '@/components/ui/box';
 import { Button, ButtonText } from '@/components/ui/button';
 import { Heading } from '@/components/ui/heading';
 import { Text } from '@/components/ui/text';
-import { useRouter } from 'expo-router';
-import React from 'react';
-import { ScrollView } from 'react-native';
 
 export default function Home() {
 	const router = useRouter();
 
 	return (
-		<Box className="flex-1 bg-background-300 h-[100vh]">
-			<Box className="absolute h-[500px] w-[500px] lg:w-[700px] lg:h-[700px]">
+		<Box className="h-screen flex-1 bg-background-300">
+			<Box className="absolute size-[500px] lg:size-[700px]">
 				<Gradient />
 			</Box>
 			<ScrollView style={{ height: '100%' }} contentContainerStyle={{ flexGrow: 1 }}>
-				<Box className="flex flex-1 items-center mx-5 lg:my-24 lg:mx-32 py-safe">
-					<Box className="gap-10 base:flex-col sm:flex-row justify-between sm:w-[80%] md:flex-1">
-						<Box className="bg-background-template py-2 px-6 rounded-full items-center flex-column md:flex-row md:self-start">
-							<Heading size="lg" className="text-white font-medium">
+				<Box className="py-safe mx-5 flex flex-1 items-center lg:mx-32 lg:my-24">
+					<Box className="base:flex-col justify-between gap-10 sm:w-4/5 sm:flex-row md:flex-1">
+						<Box className="bg-background-template flex-col items-center rounded-full px-6 py-2 md:flex-row md:self-start">
+							<Heading size="lg" className="font-medium text-white">
 								Get started by editing ./app/index.tsx
 							</Heading>
-							<Text className="text-white font-medium ml-2">find this text and replace it</Text>
-							<Text className="text-white font-medium ml-2">then explore the tabs</Text>
+							<Text className="ml-2 font-medium text-white">find this text and replace it</Text>
+							<Text className="ml-2 font-medium text-white">then explore the tabs</Text>
 						</Box>
 						<Button
 							size="lg"
-							className="bg-primary-500 px-6 py-2 rounded-full"
+							className="rounded-full bg-primary-500 px-6 py-2"
 							onPress={() => {
 								router.push('/tabs/tab1');
 							}}>
@@ -36,7 +37,7 @@ export default function Home() {
 						</Button>
 					</Box>
 
-					<Box className="flex-1 justify-center items-center h-[20px] w-[300px] lg:h-[160px] lg:w-[400px]">
+					<Box className="h-[20px] w-[300px] flex-1 items-center justify-center lg:h-[160px] lg:w-[400px]">
 						<Logo />
 					</Box>
 				</Box>

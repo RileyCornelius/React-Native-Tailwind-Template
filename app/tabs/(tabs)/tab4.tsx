@@ -37,7 +37,7 @@ export default function Tab4() {
 	return (
 		<Box className="flex-1 bg-background-0">
 			<ScrollView className="flex-1" contentContainerStyle={{ padding: 20 }}>
-				<VStack space="2xl" className="max-w-[700px] w-full self-center">
+				<VStack space="2xl" className="w-full max-w-[700px] self-center">
 					{/* Header */}
 					<VStack space="xs">
 						<Heading size="2xl" className={TEXT.heading}>
@@ -54,7 +54,7 @@ export default function Tab4() {
 								<Pressable onPress={() => setClusterType('managed')}>
 									<Radio
 										value="managed"
-										className={`w-full p-4 rounded-xl border ${
+										className={`w-full rounded-xl border p-4 ${
 											clusterType === 'managed' ? 'border-primary-500 bg-secondary-0' : 'border-outline-200 bg-background-0'
 										}`}>
 										<HStack className="items-start justify-between">
@@ -74,7 +74,7 @@ export default function Tab4() {
 								<Pressable onPress={() => setClusterType('bare_metal')}>
 									<Radio
 										value="bare_metal"
-										className={`w-full p-4 rounded-xl border ${
+										className={`w-full rounded-xl border p-4 ${
 											clusterType === 'bare_metal' ? 'border-primary-500 bg-secondary-0' : 'border-outline-200 bg-background-0'
 										}`}>
 										<HStack className="items-start justify-between">
@@ -103,7 +103,7 @@ export default function Tab4() {
 							<Text className={TEXT.muted}>H100 Tensor Core units.</Text>
 						</VStack>
 
-						<Box className="flex-row items-center border border-outline-200 rounded-xl overflow-hidden bg-background-0">
+						<Box className="flex-row items-center overflow-hidden rounded-xl border border-outline-200 bg-background-0">
 							<Button
 								variant="link"
 								action="secondary"
@@ -112,7 +112,7 @@ export default function Tab4() {
 								<ButtonIcon as={RemoveIcon} className="text-typography-600" />
 							</Button>
 							<Divider orientation="vertical" />
-							<Box className="px-5 py-2 min-w-[64px] items-center justify-center">
+							<Box className="min-w-[64px] items-center justify-center px-5 py-2">
 								<Text className={TEXT.label}>{gpuCount}</Text>
 							</Box>
 							<Divider orientation="vertical" />
@@ -141,7 +141,7 @@ export default function Tab4() {
 
 					{/* Budget Slider */}
 					<VStack space="sm">
-						<HStack className="justify-between items-center">
+						<HStack className="items-center justify-between">
 							<VStack space="xs">
 								<Text className={TEXT.label}>Hourly Budget</Text>
 								<Text className={TEXT.muted}>Set cost limits $10-500/hr.</Text>
@@ -171,7 +171,7 @@ export default function Tab4() {
 						isChecked={agreed}
 						onChange={(v) => setAgreed(Boolean(v))}
 						size="md"
-						className="items-center w-full border border-outline-200 rounded-xl p-4 bg-background-0">
+						className="w-full items-center rounded-xl border border-outline-200 bg-background-0 p-4">
 						<CheckboxIndicator>
 							<CheckboxIcon as={CheckIcon} />
 						</CheckboxIndicator>
@@ -180,7 +180,7 @@ export default function Tab4() {
 
 					{/* Submit */}
 					<Button action="primary" className="mt-4 h-12 rounded-xl" isDisabled={!agreed}>
-						<ButtonText className="font-semibold text-lg">Deploy Cluster</ButtonText>
+						<ButtonText className="text-lg font-semibold">Deploy Cluster</ButtonText>
 					</Button>
 				</VStack>
 			</ScrollView>

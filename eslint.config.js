@@ -23,6 +23,7 @@ module.exports = defineConfig([
 			'react-compiler/react-compiler': 'error',
 			'@typescript-eslint/no-unused-vars': 'off',
 			'react/no-unescaped-entities': 'off',
+			'tailwindcss/no-custom-classname': 'off',
 			// eslint-import
 			'import/order': [
 				'warn',

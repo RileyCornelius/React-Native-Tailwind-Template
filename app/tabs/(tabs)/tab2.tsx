@@ -1,3 +1,6 @@
+import React from 'react';
+import { FlatList } from 'react-native';
+
 import { GradientBlur } from '@/components/GradientBlur';
 import { Avatar, AvatarFallbackText, AvatarImage } from '@/components/ui/avatar';
 import { Badge, BadgeText } from '@/components/ui/badge';
@@ -9,20 +12,18 @@ import { SearchIcon } from '@/components/ui/icon';
 import { Input, InputField, InputIcon, InputSlot } from '@/components/ui/input';
 import { Text } from '@/components/ui/text';
 import { VStack } from '@/components/ui/vstack';
-import React from 'react';
-import { FlatList } from 'react-native';
 
 export default function Tab2() {
 	return (
 		<VStack className="flex-1 bg-background-0" space="md">
 			{/* Header Section */}
 			<Box className="px-4 pt-2">
-				<Heading size="2xl" className="font-bold mb-4">
+				<Heading size="2xl" className="mb-4 font-bold">
 					Inbox
 				</Heading>
 
 				{/* Search Input */}
-				<Input variant="outline" size="md" className="rounded-lg border-outline-200 bg-background-50 mb-4">
+				<Input variant="outline" size="md" className="mb-4 rounded-lg border-outline-200 bg-background-50">
 					<InputSlot className="pl-3">
 						<InputIcon as={SearchIcon} className="text-typography-400" />
 					</InputSlot>
@@ -31,11 +32,11 @@ export default function Tab2() {
 
 				{/* Filter Tabs */}
 				<HStack space="sm" className="mb-2 pt-1">
-					<Button size="xs" variant="solid" action="secondary" className="bg-background-100 rounded-full px-4">
-						<ButtonText className="text-typography-900 font-medium">All mail</ButtonText>
+					<Button size="xs" variant="solid" action="secondary" className="rounded-full bg-background-100 px-4">
+						<ButtonText className="font-medium text-typography-900">All mail</ButtonText>
 					</Button>
-					<Button size="xs" variant="outline" action="secondary" className="border-0 bg-transparent rounded-full px-4">
-						<ButtonText className="text-typography-500 font-medium">Unread</ButtonText>
+					<Button size="xs" variant="outline" action="secondary" className="rounded-full border-0 bg-transparent px-4">
+						<ButtonText className="font-medium text-typography-500">Unread</ButtonText>
 					</Button>
 				</HStack>
 			</Box>
@@ -55,7 +56,7 @@ export default function Tab2() {
 
 const EmailItem = ({ item }: { item: (typeof EMAIL_DATA)[0] }) => {
 	return (
-		<Box className="bg-background-0 p-4 border-b border-outline-100">
+		<Box className="border-b border-outline-100 bg-background-0 p-4">
 			<HStack space="md" className="items-start">
 				<Avatar size="md" className="bg-primary-500">
 					<AvatarFallbackText>{item.name}</AvatarFallbackText>
@@ -66,18 +67,18 @@ const EmailItem = ({ item }: { item: (typeof EMAIL_DATA)[0] }) => {
 					/>
 				</Avatar>
 				<VStack className="flex-1" space="xs">
-					<HStack className="justify-between items-center">
-						<Heading size="sm" className="text-typography-900 font-semibold">
+					<HStack className="items-center justify-between">
+						<Heading size="sm" className="font-semibold text-typography-900">
 							{item.name}
 						</Heading>
 						<Text size="xs" className="text-typography-500">
 							{item.time}
 						</Text>
 					</HStack>
-					<Text className="text-typography-900 font-bold text-sm" numberOfLines={1}>
+					<Text className="text-sm font-bold text-typography-900" numberOfLines={1}>
 						{item.subject}
 					</Text>
-					<Text className="text-typography-500 text-sm" numberOfLines={2}>
+					<Text className="text-sm text-typography-500" numberOfLines={2}>
 						{item.snippet}
 					</Text>
 					{item.tags.length > 0 && (
@@ -90,7 +91,7 @@ const EmailItem = ({ item }: { item: (typeof EMAIL_DATA)[0] }) => {
 						</HStack>
 					)}
 				</VStack>
-				{item.unread && <Box className="w-2.5 h-2.5 bg-blue-500 rounded-full mt-1.5" />}
+				{item.unread && <Box className="mt-1.5 size-2.5 rounded-full bg-blue-500" />}
 			</HStack>
 		</Box>
 	);

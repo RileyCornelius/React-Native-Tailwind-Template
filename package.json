@@ -11,7 +11,7 @@
 		"build:preview": "expo export --platform web --output-dir dist",
 		"test": "jest --watchAll",
 		"lint": "eslint .",
-		"format": "prettier --write ."
+		"format": "eslint . --fix"
 	},
 	"jest": {
 		"preset": "jest-expo"

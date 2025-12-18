@@ -1,8 +1,8 @@
-import { Pressable } from '@/components/ui/pressable';
+import React from 'react';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Tabs, useRouter } from 'expo-router';
-import React from 'react';
 
+import { Pressable } from '@/components/ui/pressable';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 
