@@ -7,7 +7,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 interface GradientBlurProps extends BlurViewProps {
 	height?: number;
 	colors?: [string, string, ...string[]];
-	locations?: [number, number, ...number[]] | null;
+	locations?: [number, number, ...number[]];
 }
 
 export const GradientBlur = ({
