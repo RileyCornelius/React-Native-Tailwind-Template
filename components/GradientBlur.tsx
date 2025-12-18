@@ -1,8 +1,8 @@
+import React from 'react';
+import { StyleSheet, useColorScheme } from 'react-native';
 import MaskedView from '@react-native-masked-view/masked-view';
 import { BlurView, BlurViewProps } from 'expo-blur';
 import { LinearGradient } from 'expo-linear-gradient';
-import React from 'react';
-import { StyleSheet, useColorScheme } from 'react-native';
 
 interface GradientBlurProps extends BlurViewProps {
 	height?: number;
