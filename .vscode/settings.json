@@ -1,8 +1,10 @@
 {
+	// Editor formatting
 	"editor.formatOnSave": true,
 	"editor.codeActionsOnSave": {
 		"source.fixAll.eslint": "explicit"
 	},
+	// Tailwind CSS
 	"tailwindCSS.includeLanguages": {
 		"typescript": "html",
 		"typescriptreact": "html",
@@ -11,45 +13,79 @@
 	},
 	"tailwindCSS.experimental.classRegex": [
 		// Standard className patterns
-		["className\\s*=\\s*[\"'`]([^\"'`]*)[\"'`]", "([^\"'`]*)"],
-		["class\\s*=\\s*[\"'`]([^\"'`]*)[\"'`]", "([^\"'`]*)"],
-
+		[
+			"className\\s*=\\s*[\"'`]([^\"'`]*)[\"'`]",
+			"([^\"'`]*)"
+		],
+		[
+			"class\\s*=\\s*[\"'`]([^\"'`]*)[\"'`]",
+			"([^\"'`]*)"
+		],
 		// TVA patterns (your tva() calls)
-		["tva\\(\\s*{[^}]*base:\\s*[\"'`]([^\"'`]*)[\"'`]", "([^\"'`]*)"],
-		["[\"'`]([^\"'`]*)[\"'`]\\s*:", "([^\"'`]*)"],
-
+		[
+			"tva\\(\\s*{[^}]*base:\\s*[\"'`]([^\"'`]*)[\"'`]",
+			"([^\"'`]*)"
+		],
+		[
+			"[\"'`]([^\"'`]*)[\"'`]\\s*:",
+			"([^\"'`]*)"
+		],
 		// Class utility functions
-		["cn\\(([^)]*)\\)", "\"([^\"]*)\""],
-		["classNames\\(([^)]*)\\)", "\"([^\"]*)\""],
-		["clsx\\(([^)]*)\\)", "\"([^\"]*)\""],
-
+		[
+			"cn\\(([^)]*)\\)",
+			"\"([^\"]*)\""
+		],
+		[
+			"classNames\\(([^)]*)\\)",
+			"\"([^\"]*)\""
+		],
+		[
+			"clsx\\(([^)]*)\\)",
+			"\"([^\"]*)\""
+		],
 		// Gluestack style functions
-		["Style\\(\\s*{[^}]*class:\\s*[\"'`]([^\"'`]*)[\"'`]", "([^\"'`]*)"],
-		["class:\\s*[\"'`]([^\"'`]*)[\"'`]", "([^\"'`]*)"],
-
+		[
+			"Style\\(\\s*{[^}]*class:\\s*[\"'`]([^\"'`]*)[\"'`]",
+			"([^\"'`]*)"
+		],
+		[
+			"class:\\s*[\"'`]([^\"'`]*)[\"'`]",
+			"([^\"'`]*)"
+		],
 		// Template literals
-		["className\\s*=\\s*`([^`]*)`", "([^`]*)"],
-		["class\\s*=\\s*`([^`]*)`", "([^`]*)"]
+		[
+			"className\\s*=\\s*`([^`]*)`",
+			"([^`]*)"
+		],
+		[
+			"class\\s*=\\s*`([^`]*)`",
+			"([^`]*)"
+		]
 	],
-	"tailwindCSS.files.exclude": ["**/.git/**", "**/node_modules/**", "**/dist/**"],
+	"tailwindCSS.files.exclude": [
+		"**/.git/**",
+		"**/node_modules/**",
+		"**/dist/**"
+	],
 	"tailwindCSS.emmetCompletions": true,
 	"tailwindCSS.validate": true,
-	"tailwindCSS.lint.cssConflict": "warning",
+	"tailwindCSS.lint.cssConflict": "ignore",
 	"tailwindCSS.lint.invalidApply": "error",
 	"tailwindCSS.lint.invalidScreen": "error",
 	"tailwindCSS.lint.invalidVariant": "error",
 	"tailwindCSS.lint.invalidConfigPath": "error",
 	"tailwindCSS.lint.invalidTailwindDirective": "error",
 	"tailwindCSS.lint.recommendedVariantOrder": "warning",
-  "tailwindCSS.classAttributes": [
-    "class",
-    "className",
-    "class:list",
-    "classList",
-    "ngClass"
-  ],
-  "cSpell.words": [
-    "hstack",
-    "vstack"
-  ]
+	"tailwindCSS.classAttributes": [
+		"class",
+		"className",
+		"class:list",
+		"classList",
+		"ngClass"
+	],
+	// Spell checker
+	"cSpell.words": [
+		"hstack",
+		"vstack"
+	]
 }
