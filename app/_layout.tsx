@@ -9,6 +9,7 @@ import { StatusBar } from 'expo-status-bar';
 import { Fab, FabIcon } from '@/components/ui/fab';
 import { GluestackUIProvider } from '@/components/ui/gluestack-ui-provider';
 import { MoonIcon, SunIcon } from '@/components/ui/icon';
+import { useColorScheme } from '@/hooks/useColorScheme';
 import '@/global.css';
 
 export { ErrorBoundary } from 'expo-router';
@@ -21,35 +22,37 @@ export default function RootLayout() {
 		...FontAwesome.font,
 	});
 
-	const [styleLoaded, setStyleLoaded] = useState(false);
 	// Expo Router uses Error Boundaries to catch errors in the navigation tree.
 	useEffect(() => {
 		if (error) throw error;
 	}, [error]);
 
+	// Hide the splash screen once fonts are loaded
 	useEffect(() => {
 		if (loaded) {
 			SplashScreen.hideAsync();
 		}
 	}, [loaded]);
+
 	return <RootLayoutNav />;
 }
 
 function RootLayoutNav() {
 	const pathname = usePathname();
-	const [colorMode, setColorMode] = useState<'light' | 'dark'>('light');
+	const systemScheme = useColorScheme();
+	const [colorMode, setColorMode] = useState<'light' | 'dark'>((systemScheme as 'light' | 'dark') ?? 'light');
 
 	return (
 		<GluestackUIProvider mode={colorMode}>
 			<ThemeProvider value={colorMode === 'dark' ? DarkTheme : DefaultTheme}>
+				<StatusBar style={colorMode === 'dark' ? 'light' : 'dark'} />
 				<Slot />
 				{pathname === '/' && (
-					<Fab onPress={() => setColorMode(colorMode === 'dark' ? 'light' : 'dark')} className="m-6" size="lg">
+					<Fab className="m-6" size="lg" onPress={() => setColorMode(colorMode === 'dark' ? 'light' : 'dark')}>
 						<FabIcon as={colorMode === 'dark' ? MoonIcon : SunIcon} />
 					</Fab>
 				)}
 			</ThemeProvider>
-			<StatusBar style={colorMode === 'dark' ? 'light' : 'dark'} />
 		</GluestackUIProvider>
 	);
 }

@@ -3,7 +3,7 @@ import { Stack } from 'expo-router';
 export { ErrorBoundary } from 'expo-router'; // Catch any errors thrown by the Layout component.
 
 export const unstable_settings = {
-	// Ensure that reloading on `/modal` keeps a back button present.
+	// Ensure that reloading keeps a back button present.
 	initialRouteName: '(tabs)',
 };
 

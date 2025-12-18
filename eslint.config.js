@@ -1,6 +1,5 @@
 const { defineConfig, globalIgnores } = require('eslint/config');
 const expoConfig = require('eslint-config-expo/flat');
-const prettier = require('eslint-plugin-prettier/recommended');
 const reactCompiler = require('eslint-plugin-react-compiler');
 const tailwind = require('eslint-plugin-tailwindcss');
 const globals = require('globals');
@@ -55,5 +54,4 @@ module.exports = defineConfig([
 			'import/newline-after-import': 1,
 		},
 	},
-	prettier,
 ]);
