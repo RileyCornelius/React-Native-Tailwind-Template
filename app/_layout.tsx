@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { useFonts } from 'expo-font';
-import { Slot, usePathname } from 'expo-router';
+import { Stack, usePathname } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 
@@ -46,7 +46,10 @@ function RootLayoutNav() {
 		<GluestackUIProvider mode={colorMode}>
 			<ThemeProvider value={colorMode === 'dark' ? DarkTheme : DefaultTheme}>
 				<StatusBar style={colorMode === 'dark' ? 'light' : 'dark'} />
-				<Slot />
+				<Stack>
+					<Stack.Screen name="index" options={{ headerShown: false }} />
+					<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+				</Stack>
 				{pathname === '/' && (
 					<Fab className="m-6" size="lg" onPress={() => setColorMode(colorMode === 'dark' ? 'light' : 'dark')}>
 						<FabIcon as={colorMode === 'dark' ? MoonIcon : SunIcon} />
