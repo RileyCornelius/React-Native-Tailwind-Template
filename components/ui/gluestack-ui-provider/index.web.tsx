@@ -5,7 +5,8 @@ import { OverlayProvider } from '@gluestack-ui/core/overlay/creator';
 import { ToastProvider } from '@gluestack-ui/core/toast/creator';
 import { setFlushStyles } from '@gluestack-ui/utils/nativewind-utils';
 
-import { config } from './config';
+import { config } from '@/constants/colorsConfig';
+
 import { script } from './script';
 
 export type ModeType = 'light' | 'dark' | 'system';

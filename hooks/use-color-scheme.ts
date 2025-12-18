@@ -1,6 +1,6 @@
 import { useColorScheme as useNativewindColorScheme } from 'nativewind';
 
-import { Colors } from '@/constants/colors1';
+import { Colors } from '@/constants/colors';
 
 // export { useColorScheme } from 'react-native';
 

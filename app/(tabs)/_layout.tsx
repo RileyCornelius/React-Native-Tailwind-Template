@@ -3,7 +3,6 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Tabs, useRouter } from 'expo-router';
 
 import { Pressable } from '@/components/ui/pressable';
-import { Colors } from '@/constants/colors';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 
 function TabBarIcon(props: { name: React.ComponentProps<typeof FontAwesome>['name']; color: string }) {
@@ -11,16 +10,24 @@ function TabBarIcon(props: { name: React.ComponentProps<typeof FontAwesome>['nam
 }
 
 export default function TabLayout() {
-	const colorScheme = useColorScheme();
+	const { colorScheme, colors } = useColorScheme();
 	const router = useRouter();
 
 	return (
 		<Tabs
 			screenOptions={{
-				tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+				headerTintColor: colors.text, // Controls back button and title color
+				tabBarStyle: {
+					backgroundColor: colors.background,
+				},
+				tabBarActiveTintColor: colors.tint,
+				tabBarInactiveTintColor: colors.icon,
+				tabBarLabelStyle: {
+					fontSize: 12,
+				},
 				headerLeft: () => (
 					<Pressable className="ml-4 mr-2" onPress={() => router.dismiss()}>
-						<FontAwesome name="arrow-left" size={18} color={Colors[colorScheme ?? 'light'].text} />
+						<FontAwesome name="arrow-left" size={18} color={colors.text} />
 					</Pressable>
 				),
 			}}>

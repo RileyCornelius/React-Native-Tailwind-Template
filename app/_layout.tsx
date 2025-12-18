@@ -5,6 +5,7 @@ import { useFonts } from 'expo-font';
 import { Stack, usePathname } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
+import 'expo-dev-client';
 
 import { Fab, FabIcon } from '@/components/ui/fab';
 import { GluestackUIProvider } from '@/components/ui/gluestack-ui-provider';
@@ -39,20 +40,19 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
 	const pathname = usePathname();
-	const systemScheme = useColorScheme();
-	const [colorMode, setColorMode] = useState<'light' | 'dark'>((systemScheme as 'light' | 'dark') ?? 'light');
+	const { colorScheme, isDarkColorScheme, toggleColorScheme } = useColorScheme();
 
 	return (
-		<GluestackUIProvider mode={colorMode}>
-			<ThemeProvider value={colorMode === 'dark' ? DarkTheme : DefaultTheme}>
-				<StatusBar style={colorMode === 'dark' ? 'light' : 'dark'} />
+		<GluestackUIProvider mode={colorScheme}>
+			<ThemeProvider value={isDarkColorScheme ? DarkTheme : DefaultTheme}>
+				<StatusBar style={isDarkColorScheme ? 'light' : 'dark'} />
 				<Stack>
 					<Stack.Screen name="index" options={{ headerShown: false }} />
 					<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
 				</Stack>
 				{pathname === '/' && (
-					<Fab className="m-6" size="lg" onPress={() => setColorMode(colorMode === 'dark' ? 'light' : 'dark')}>
-						<FabIcon as={colorMode === 'dark' ? MoonIcon : SunIcon} />
+					<Fab className="m-6" size="lg" onPress={() => toggleColorScheme()}>
+						<FabIcon as={isDarkColorScheme ? MoonIcon : SunIcon} />
 					</Fab>
 				)}
 			</ThemeProvider>
