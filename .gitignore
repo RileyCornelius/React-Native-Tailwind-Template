@@ -39,10 +39,3 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
-
-# START Ruler Generated Files
-/.github/copilot-instructions.md
-/.github/copilot-instructions.md.bak
-/AGENTS.md
-/AGENTS.md.bak
-# END Ruler Generated Files
