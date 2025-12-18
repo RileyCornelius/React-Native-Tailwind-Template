@@ -7,6 +7,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import 'expo-dev-client';
 
+import { ThemeToggle } from '@/components/common/theme-toggle';
 import { Fab, FabIcon } from '@/components/ui/fab';
 import { GluestackUIProvider } from '@/components/ui/gluestack-ui-provider';
 import { MoonIcon, SunIcon } from '@/components/ui/icon';
@@ -52,7 +53,7 @@ function RootLayoutNav() {
 				</Stack>
 				{pathname === '/' && (
 					<Fab className="m-6" size="lg" onPress={() => toggleColorScheme()}>
-						<FabIcon as={isDarkColorScheme ? MoonIcon : SunIcon} />
+						<ThemeToggle invertColor={true} />
 					</Fab>
 				)}
 			</ThemeProvider>
