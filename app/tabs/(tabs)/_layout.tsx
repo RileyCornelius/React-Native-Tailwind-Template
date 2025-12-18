@@ -1,38 +1,57 @@
-import React from 'react';
+import { Pressable } from '@/components/ui/pressable';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Tabs } from 'expo-router';
-import { useClientOnlyValue } from '@/components/useClientOnlyValue';
+import { Tabs, useRouter } from 'expo-router';
+import React from 'react';
 
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
-}) {
-  return <FontAwesome size={18} style={{ marginBottom: -3 }} {...props} />;
+import { useColorScheme } from '@/components/useColorScheme';
+import { Colors } from '@/constants/Colors';
+
+function TabBarIcon(props: { name: React.ComponentProps<typeof FontAwesome>['name']; color: string }) {
+	return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
 }
 
 export default function TabLayout() {
-  return (
-    <Tabs
-      screenOptions={{
-        // Disable the static render of the header on web
-        // to prevent a hydration error in React Navigation v6.
-        headerShown: useClientOnlyValue(false, true),
-      }}
-    >
-      <Tabs.Screen
-        name="tab1"
-        options={{
-          title: 'Tab 1',
-          tabBarIcon: ({ color }) => <TabBarIcon name="star-o" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="tab2"
-        options={{
-          title: 'Tab 2',
-          tabBarIcon: ({ color }) => <TabBarIcon name="star-o" color={color} />,
-        }}
-      />
-    </Tabs>
-  );
+	const colorScheme = useColorScheme();
+	const router = useRouter();
+
+	return (
+		<Tabs
+			screenOptions={{
+				tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+				headerLeft: () => (
+					<Pressable className="ml-4 mr-2" onPress={() => router.dismiss()}>
+						<FontAwesome name="arrow-left" size={18} color={Colors[colorScheme ?? 'light'].text} />
+					</Pressable>
+				),
+			}}>
+			<Tabs.Screen
+				name="tab1"
+				options={{
+					title: 'Profile',
+					tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
+				}}
+			/>
+			<Tabs.Screen
+				name="tab2"
+				options={{
+					title: 'Inbox',
+					tabBarIcon: ({ color }) => <TabBarIcon name="envelope" color={color} />,
+				}}
+			/>
+			<Tabs.Screen
+				name="tab3"
+				options={{
+					title: 'Smart Home',
+					tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
+				}}
+			/>
+			<Tabs.Screen
+				name="tab4"
+				options={{
+					title: 'Deploy',
+					tabBarIcon: ({ color }) => <TabBarIcon name="cloud" color={color} />,
+				}}
+			/>
+		</Tabs>
+	);
 }
