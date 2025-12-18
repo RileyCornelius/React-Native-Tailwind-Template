@@ -12,7 +12,7 @@ import { Fab, FabIcon } from '@/components/ui/fab';
 import { GluestackUIProvider } from '@/components/ui/gluestack-ui-provider';
 import { MoonIcon, SunIcon } from '@/components/ui/icon';
 import { useColorScheme } from '@/hooks/use-color-scheme';
-import '@/global.css';
+import '../../global.css';
 
 export { ErrorBoundary } from 'expo-router';
 
@@ -20,7 +20,7 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
 	const [loaded, error] = useFonts({
-		SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+		SpaceMono: require('@/assets/fonts/SpaceMono-Regular.ttf'),
 		...FontAwesome.font,
 	});
 
