@@ -1,4 +1,5 @@
 import React from 'react';
+import { Ionicons } from '@expo/vector-icons';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Tabs, useRouter } from 'expo-router';
 
@@ -6,7 +7,7 @@ import { Pressable } from '@/components/ui/pressable';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 
 function TabBarIcon(props: { name: React.ComponentProps<typeof FontAwesome>['name']; color: string }) {
-	return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
+	return <FontAwesome size={28} style={{ marginBottom: -1 }} {...props} />;
 }
 
 export default function TabLayout() {
@@ -27,7 +28,8 @@ export default function TabLayout() {
 				},
 				headerLeft: () => (
 					<Pressable className="ml-4 mr-2" onPress={() => router.dismiss()}>
-						<FontAwesome name="arrow-left" size={18} color={colors.text} />
+						{/* <FontAwesome name="arrow-left" size={18} color={colors.text} /> */}
+						<Ionicons name="arrow-back" size={18} color={colors.text} />
 					</Pressable>
 				),
 			}}>
@@ -57,6 +59,13 @@ export default function TabLayout() {
 				options={{
 					title: 'Deploy',
 					tabBarIcon: ({ color }) => <TabBarIcon name="cloud" color={color} />,
+				}}
+			/>
+			<Tabs.Screen
+				name="tab5"
+				options={{
+					title: 'Showcase',
+					tabBarIcon: ({ color }) => <TabBarIcon name="star" color={color} />,
 				}}
 			/>
 		</Tabs>

@@ -14,6 +14,8 @@ export function GluestackUIProvider({ mode = 'light', ...props }: { mode?: ModeT
 
 	useEffect(() => {
 		setColorScheme(mode);
+		// eslint-disable-next-line react-compiler/react-compiler
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [mode]);
 
 	return (

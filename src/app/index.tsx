@@ -22,7 +22,7 @@ export default function Home() {
 					<Box className="base:flex-col justify-between gap-10 sm:w-4/5 sm:flex-row md:flex-1">
 						<Box className="bg-background-template flex-col items-center rounded-full px-6 py-2 md:flex-row md:self-start">
 							<Heading size="lg" className="font-medium text-white">
-								Get started by editing ./app/index.tsx
+								Get started by editing "app/index.tsx"
 							</Heading>
 							<Text className="ml-2 font-medium text-white">find this text and replace it</Text>
 							<Text className="ml-2 font-medium text-white">then explore the tabs</Text>
@@ -33,7 +33,7 @@ export default function Home() {
 							onPress={() => {
 								router.push('/(tabs)/tab1');
 							}}>
-							<ButtonText>Explore Tab Navigation</ButtonText>
+							<ButtonText className="">Explore Tab Navigation</ButtonText>
 						</Button>
 					</Box>
 
