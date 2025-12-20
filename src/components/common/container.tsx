@@ -16,10 +16,12 @@ export function Container({ children, className, ...props }: PropsWithChildren<P
 
 	return (
 		<AnimatedView
-			className={cn('flex-1 bg-background', className)}
-			style={{
-				paddingBottom: insets.bottom,
-			}}
+			className={cn('flex-1 bg-background-0', className)}
+			style={
+				{
+					// paddingBottom: insets.bottom,
+				}
+			}
 			{...props}>
 			<ScrollView contentContainerStyle={{ flexGrow: 1 }}>{children}</ScrollView>
 		</AnimatedView>
