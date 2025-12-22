@@ -41,10 +41,10 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
 	const pathname = usePathname();
-	const { colorScheme, isDarkColorScheme, toggleColorScheme } = useColorScheme();
+	const { savedTheme, isDarkColorScheme, toggleColorScheme } = useColorScheme();
 
 	return (
-		<GluestackUIProvider mode={colorScheme}>
+		<GluestackUIProvider mode={savedTheme}>
 			<ThemeProvider value={isDarkColorScheme ? DarkTheme : DefaultTheme}>
 				<StatusBar style={isDarkColorScheme ? 'light' : 'dark'} />
 				<Stack>

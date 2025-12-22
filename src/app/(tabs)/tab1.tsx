@@ -1,6 +1,7 @@
 import React from 'react';
 import { Platform, ScrollView } from 'react-native';
 
+import { ThemeSelector } from '@/components/common/theme-selector';
 import { Box } from '@/components/ui/box';
 import { Button, ButtonText } from '@/components/ui/button';
 import {
@@ -140,6 +141,7 @@ export default function Tab1() {
 								<ButtonText>Cancel</ButtonText>
 							</Button>
 						</HStack>
+						{/* <ThemeSelector /> */}
 					</VStack>
 				</ScrollView>
 			</KeyboardAvoidingView>

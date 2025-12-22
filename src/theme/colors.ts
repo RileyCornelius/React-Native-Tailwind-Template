@@ -1,28 +1,32 @@
 /**
- * These colors are only used for header and tab bar.
- * Use tailwind colors for the rest of the app which are defined in /constants/colorsConfig.ts file.
+ * These colors are mapped from colorsConfig.ts to ensure a single source of truth.
+ * Use tailwind colors (e.g., className="text-primary-500") for the rest of the app.
  * [Nativewind](https://www.nativewind.dev/)
  * [Gluestack UI](https://gluestack.io/)
  */
 
-const tintColorLight = '#0a7ea4';
-const tintColorDark = '#fff';
+import { darkColors, lightColors } from './colorsConfig';
+
+const getVar = (colors: Record<string, string>, name: string) => {
+	const val = colors[`--color-${name}` as keyof typeof colors];
+	return val ? `rgb(${val.split(' ').join(', ')})` : '';
+};
 
 export const Colors = {
 	light: {
-		text: '#11181C',
-		background: '#fff',
-		tint: tintColorLight,
-		icon: '#687076',
-		tabIconDefault: '#687076',
-		tabIconSelected: tintColorLight,
+		text: getVar(lightColors, 'typography-900'),
+		background: getVar(lightColors, 'background-0'),
+		tint: getVar(lightColors, 'info-500'),
+		icon: getVar(lightColors, 'typography-500'),
+		tabIconDefault: getVar(lightColors, 'typography-500'),
+		tabIconSelected: getVar(lightColors, 'info-500'),
 	},
 	dark: {
-		text: '#ECEDEE',
-		background: '#151718',
-		tint: tintColorDark,
-		icon: '#9BA1A6',
-		tabIconDefault: '#9BA1A6',
-		tabIconSelected: tintColorDark,
+		text: getVar(darkColors, 'typography-900'),
+		background: getVar(darkColors, 'background-0'),
+		tint: getVar(darkColors, 'info-500'),
+		icon: getVar(darkColors, 'typography-500'),
+		tabIconDefault: getVar(darkColors, 'typography-500'),
+		tabIconSelected: getVar(darkColors, 'info-500'),
 	},
 };

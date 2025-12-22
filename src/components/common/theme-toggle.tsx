@@ -4,8 +4,8 @@ import Animated, { LayoutAnimationConfig, ZoomInRotate } from 'react-native-rean
 import { cn } from '@gluestack-ui/utils/nativewind-utils';
 
 import { Icon, MoonIcon, SunIcon } from '@/components/ui/icon';
-import { Colors } from '@/theme/colors';
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import { Colors } from '@/theme/colors';
 
 export function ThemeToggle({ invertColor = false }: { invertColor?: boolean }) {
 	const { colorScheme, toggleColorScheme } = useColorScheme();
